@@ -1,0 +1,64 @@
+.hero-banner {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  background: linear-gradient(135deg, #0056b3, #00bfa6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  width: 100%;
+  height: 100%;
+  background: url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1600") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #e0e0e0;
+}
+
+.hero-btn {
+  background-color: #00bfa6;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #009c8c;
+  transform: translateY(-2px);
+}

@@ -1,0 +1,88 @@
+.orders-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.orders-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.no-orders {
+  font-size: 16px;
+  color: #666;
+}
+
+/* GRID */
+.orders-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+/* CARD */
+.order-card {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+  background: #fff;
+  transition: box-shadow 0.2s ease;
+}
+
+.order-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* IMAGE */
+.order-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f3f3f3;
+}
+
+/* INFO */
+.order-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.order-info h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #111;
+}
+
+.order-info p {
+  font-size: 14px;
+  margin: 2px 0;
+  color: #444;
+}
+
+/* STATUS */
+.order-info p:first-of-type {
+  font-weight: 600;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .order-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .order-img {
+    width: 140px;
+    height: 140px;
+  }
+}

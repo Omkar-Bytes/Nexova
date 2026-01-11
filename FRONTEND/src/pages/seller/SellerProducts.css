@@ -1,0 +1,73 @@
+.seller-products {
+  padding: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.seller-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.seller-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.seller-table th,
+.seller-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.seller-table th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+
+.seller-input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  outline: none;
+}
+
+.seller-input:focus {
+  border-color: #2563eb;
+}
+
+.seller-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn.edit {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn.save {
+  background: #16a34a;
+  color: #fff;
+}
+
+.btn.delete {
+  background: #dc2626;
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}

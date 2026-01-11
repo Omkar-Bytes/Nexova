@@ -1,0 +1,20 @@
+.admin-newsletter {
+  padding: 20px;
+}
+
+.admin-newsletter table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-newsletter th,
+.admin-newsletter td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.admin-newsletter th {
+  background: #111;
+  color: white;
+}
