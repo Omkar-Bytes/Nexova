@@ -1,8 +1,14 @@
-node_modules
-dist
-.env
-target
-.metadata
-.vscode
-.idea
-FRONTEND/public/assets/*.zip
+# Node
+node_modules/
+dist/
+
+# Assets (block large junk)
+FRONTEND/public/assets/
+
+# Java
+target/
+
+# IDE
+.metadata/
+.vscode/
+.idea/
