@@ -41,7 +41,11 @@ public class SecurityConfig {
 
             .cors(cors -> cors.configurationSource(request -> {
                 CorsConfiguration cfg = new CorsConfiguration();
-                cfg.setAllowedOrigins(List.of("http://localhost:5173"));
+                cfg.setAllowedOrigins(List.of(
+                	    "http://localhost:5173",
+                	    "https://nexova.yashrajonline.com"
+                	));
+
                 cfg.setAllowedMethods(List.of("GET","POST","PUT","DELETE","PATCH","OPTIONS"));
                 cfg.setAllowedHeaders(List.of("*"));
                 cfg.setAllowCredentials(true);
