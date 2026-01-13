@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../api/axios";
 import { useAuth } from "../../context/AuthContext";
 import "./AdminUsers.css";
 
@@ -19,7 +19,7 @@ const AdminUsers = () => {
   const { token } = useAuth();
 
   const load = async () => {
-    const res = await axios.get("http://localhost:8080/api/admin/users", {
+    const res = await api.get("/api/admin/users", {
       headers: { Authorization: `Bearer ${token}` },
     });
     setUsers(res.data);
@@ -40,7 +40,7 @@ const AdminUsers = () => {
   };
 
   const saveEdit = async (id) => {
-    await axios.put(`http://localhost:8080/api/admin/user/${id}`, form, {
+    await api.put(`/api/admin/user/${id}`, form, {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -50,7 +50,7 @@ const AdminUsers = () => {
 
   // DELETE
   const remove = async (id) => {
-    await axios.delete(`http://localhost:8080/api/admin/user/${id}`, {
+    await api.delete(`/api/admin/user/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     load();
@@ -60,8 +60,8 @@ const AdminUsers = () => {
   const addUser = async () => {
     if (!newUser.name || !newUser.email || !newUser.password) return;
 
-    await axios.post(
-      "http://localhost:8080/api/admin/user",
+    await api.post(
+      "/api/admin/user",
       newUser,
       {
         headers: { Authorization: `Bearer ${token}` },

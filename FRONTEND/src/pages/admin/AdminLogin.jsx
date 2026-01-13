@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "../../api/axios";
 import { useNavigate } from "react-router-dom";
 import "../Login.css";
 
@@ -14,7 +14,7 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8080/api/auth/login", form);
+      const res = await api.post("/api/auth/login", form);
 
       if (res.data.role !== "ADMIN") {nb
         alert("Not an admin account.");

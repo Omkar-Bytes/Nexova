@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 import { useAuth } from "../context/AuthContext";
 import staticProducts from "../data/products";
 import "./Orders.css";
@@ -18,7 +18,7 @@ const Orders = () => {
     const fetchOrders = async () => {
       try {
         // ✅ AUTHENTICATED — ORDERS
-        const orderRes = await axios.get("http://localhost:8080/api/orders/my", {
+        const orderRes = await api.get("/api/orders/my", {
   headers: {
     Authorization: `Bearer ${token}`,
   },
@@ -44,8 +44,8 @@ const Orders = () => {
               };
             }
 
-            const prodRes = await axios.get(
-              `http://localhost:8080/api/products/${order.productId}`
+            const prodRes = await api.get(
+              `/api/products/${order.productId}`
             );
 
             return {

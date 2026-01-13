@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import axios from "axios";
+import api from "../api/axios";
 import products from "../data/products";
 import { CartContext } from "../context/CartContext";
 import "./Shop.css";
@@ -22,8 +22,8 @@ const Shop = ({ searchQuery }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/api/products")
+    api
+      .get("/api/products")
       .then((res) => setDbProducts(res.data || []))
       .finally(() => setLoading(false));
   }, []);

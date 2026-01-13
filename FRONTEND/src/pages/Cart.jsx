@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../api/axios";
 import "./Cart.css";
 
 const Cart = () => {
@@ -28,8 +28,8 @@ const Cart = () => {
           ? Number(String(item.id).replace("db-", ""))
           : item.id;
 
-        await axios.post(
-          "http://localhost:8080/api/orders",
+        await api.post(
+          "/api/orders",
           {
             productId,
             productSource: isDbProduct ? "DB" : "STATIC",

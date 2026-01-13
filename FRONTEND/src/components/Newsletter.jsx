@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 import "./Newsletter.css";
 
 const Newsletter = () => {
@@ -10,7 +10,7 @@ const Newsletter = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8080/api/newsletter", {
+      const res = await api.post("/api/newsletter", {
         email,
       });
 

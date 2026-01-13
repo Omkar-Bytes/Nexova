@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "./UserDashboard.css";
@@ -22,8 +22,8 @@ const UserDashboard = () => {
 
   const updateProfile = async () => {
     try {
-      await axios.put(
-        `http://localhost:8080/api/user/profile/${user.id}`,
+      await api.put(
+        `/api/user/profile/${user.id}`,
         { email, password: password || null },
         { headers: { Authorization: `Bearer ${token}` } }
       );

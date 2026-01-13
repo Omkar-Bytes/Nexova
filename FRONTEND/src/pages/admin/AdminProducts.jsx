@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../api/axios";
 import { useAuth } from "../../context/AuthContext";
 import "./AdminProducts.css";
 
@@ -19,14 +19,14 @@ const token = user?.token || localStorage.getItem("token");
   });
 
   const load = async () => {
-    const res = await axios.get("http://localhost:8080/api/admin/products", {
+    const res = await api.get("/api/admin/products", {
       headers: { Authorization: `Bearer ${token}` },
     });
     setProducts(res.data);
   };
 
   const remove = async (id) => {
-    await axios.delete(`http://localhost:8080/api/admin/product/${id}`, {
+    await api.delete(`/api/admin/product/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     load();
@@ -44,8 +44,8 @@ const token = user?.token || localStorage.getItem("token");
   };
 
   const saveEdit = async () => {
-    await axios.put(
-      `http://localhost:8080/api/admin/product/${editing}`,
+    await api.put(
+      `/api/admin/product/${editing}`,
       form,
       { headers: { Authorization: `Bearer ${token}` } }
     );

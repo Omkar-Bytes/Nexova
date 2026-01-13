@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../api/axios";
 import { useAuth } from "../../context/AuthContext";
 import "./AdminNewsletter.css";
 
@@ -11,8 +11,8 @@ const AdminNewsletter = () => {
   useEffect(() => {
     const fetchSubs = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:8080/api/admin/newsletter",
+        const res = await api.get(
+          "/api/admin/newsletter",
           {
             headers: {
               Authorization: `Bearer ${token}`,

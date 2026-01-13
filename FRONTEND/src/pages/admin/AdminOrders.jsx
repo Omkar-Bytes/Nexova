@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../api/axios";
 import { useAuth } from "../../context/AuthContext";
 import "./AdminOrders.css";
 
@@ -16,8 +16,8 @@ const AdminOrders = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get(
-        "http://localhost:8080/api/admin/orders",
+      const res = await api.get(
+        "/api/admin/orders",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -34,8 +34,8 @@ const AdminOrders = () => {
 
   const updateStatus = async (orderId, newStatus) => {
     try {
-      await axios.put(
-        `http://localhost:8080/api/admin/order/${orderId}`,
+      await api.put(
+        `/api/admin/order/${orderId}`,
         { status: newStatus },
         {
           headers: {
@@ -58,8 +58,8 @@ const AdminOrders = () => {
     if (!window.confirm("Delete this order?")) return;
 
     try {
-      await axios.delete(
-        `http://localhost:8080/api/admin/order/${orderId}`,
+      await api.delete(
+        `/api/admin/order/${orderId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

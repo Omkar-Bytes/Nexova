@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext"; // context
 import "./Login.css";
@@ -36,7 +36,7 @@ const Login = () => {
           storeName: loginType === "seller" ? formData.storeName : null,
         };
 
-        await axios.post("http://localhost:8080/api/auth/signup", payload);
+        await api.post("/api/auth/signup", payload);
         alert("Account created successfully!");
         setIsSignup(false);
         return;
@@ -48,7 +48,7 @@ const Login = () => {
         password: formData.password,
       };
 
-      const res = await axios.post("http://localhost:8080/api/auth/login", payload);
+      const res = await api.post("/api/auth/login", payload);
 login(res.data);
 alert(`Welcome ${res.data.name}!`);
 navigate("/");
